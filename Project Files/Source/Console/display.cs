@@ -1238,6 +1238,26 @@ namespace Thetis
             }
         }
 
+        private static int tx_wf_amp_max = 30;
+        public static int TXWFAmpMax
+        {
+            get { return tx_wf_amp_max; }
+            set
+            {
+                tx_wf_amp_max = value;
+            }
+        }
+
+        private static int tx_wf_amp_min = -70;
+        public static int TXWFAmpMin
+        {
+            get { return tx_wf_amp_min; }
+            set
+            {
+                tx_wf_amp_min = value;
+            }
+        }
+
         private static Color band_edge_color = Color.Red;
         private static Pen band_edge_pen = new Pen(band_edge_color);
         public static Color BandEdgeColor
