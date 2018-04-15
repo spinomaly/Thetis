@@ -438,6 +438,8 @@ namespace Thetis
             udTXGridMax.Value = Display.TXSpectrumGridMax;
             udTXGridMin.Value = Display.TXSpectrumGridMin;
             udTXGridStep.Value = Display.TXSpectrumGridStep;
+            udTXWFAmpMax.Value = Display.TXWFAmpMax;
+            udTXWFAmpMin.Value = Display.TXWFAmpMin;
         }
 
         private void InitDSPTab()
@@ -8738,6 +8740,20 @@ namespace Thetis
         private void udTXGridStep_ValueChanged(object sender, System.EventArgs e)
         {
             Display.TXSpectrumGridStep = (int)udTXGridStep.Value;
+        }
+
+        private void udTXWFAmpMax_ValueChanged(object sender, EventArgs e)
+        {
+            if (udTXWFAmpMax.Value <= udTXWFAmpMin.Value)
+                udTXWFAmpMax.Value = udTXWFAmpMin.Value + 10;
+            Display.TXWFAmpMax = (int)udTXWFAmpMax.Value;
+        }
+
+        private void udTXWFAmpMin_ValueChanged(object sender, EventArgs e)
+        {
+            if (udTXWFAmpMin.Value >= udTXWFAmpMax.Value)
+                udTXWFAmpMin.Value = udTXWFAmpMax.Value - 10;
+            Display.TXWFAmpMin = (int)udTXWFAmpMin.Value;
         }
 
         private void comboTXLabelAlign_SelectedIndexChanged(object sender, System.EventArgs e)

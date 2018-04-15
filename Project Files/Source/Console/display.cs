@@ -10874,7 +10874,17 @@ namespace Thetis
                 high_threshold = waterfall_high_threshold;
                 sample_rate = sample_rate_rx1;
 
-                if (rx1_waterfall_agc)
+                if (local_mox)
+                    high_threshold = (float)TXWFAmpMax;
+                else
+                    high_threshold = waterfall_high_threshold;
+
+                if (local_mox)
+                {
+                    low_threshold = (float)TXWFAmpMin;
+                    waterfall_minimum = rx1_waterfall_minimum;
+                }
+                else if (rx1_waterfall_agc)
                 {
                     waterfall_minimum = rx1_waterfall_minimum;
                     low_threshold = RX1waterfallPreviousMinValue;
